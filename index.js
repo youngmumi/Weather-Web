@@ -7,30 +7,21 @@ const button = document.querySelector('.search-box button');
 
 button.addEventListener('click', () => {
     const city = searchBox.value;
+    const apiKey = '8df46a7ec234a457b3c4a5044ebcf108'
 
     if (city === '') return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8df46a7ec234a457b3c4a5044ebcf108&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
         .then(response => response.json())
         .then(json => {
             if (json.cod === '404') {
-                const container = document.querySelector('.container');
-            const weatherBox = document.querySelector('.weather-box');
-            const weatherDetails = document.querySelector('.weather-details');
-            const error404 = document.getElementById('error404');
-    
-    // Set the container height for error state
-            container.classList.add('error-404');
-    
-    // Hide weather information
-            weatherBox.style.display = 'none';
-            weatherDetails.style.display = 'none';
-    
-    // Show the error message
-            error404.style.display = 'block';
-            error404.classList.add('fadeIn');
-    
-            return; 
+                // Show error state
+                container.classList.add('error-404');
+                weatherBox.style.display = 'none';
+                weatherDetails.style.display = 'none';
+                error404.style.display = 'block';
+                error404.classList.add('fadeIn');
+                return;
             }
 
             weatherBox.style.display = 'block';
