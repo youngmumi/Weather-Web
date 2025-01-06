@@ -18,11 +18,12 @@ body {
 .container {
     position: relative;
     width: 400px;
-    height: 125px; /* Initial height */
+    height: 105px;
     background: #fff;
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 18px;
+    font-family: 'Roboto', sans-serif;
     transition: 0.6s ease-out;
 }
 
